@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FrontEndHomeController extends Controller
+class AdminHomeController extends Controller
 {
     public function getMaster(){
-      return view('frontEnd.home.index');
+      return view('backEnd.dashboard.index');
     }
 }
