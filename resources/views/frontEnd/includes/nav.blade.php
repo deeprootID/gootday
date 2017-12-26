@@ -2,9 +2,9 @@
 <div class="header">
 	<div class="container">
 		<ul>
-			<li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>Free and Fast Delivery</li>
-			<li><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Free shipping On all orders</li>
-			<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@example.com">info@example.com</a></li>
+			<li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>Straight from the Farm</li>
+			<li><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Improving Farmers’ Livelihood</li>
+			<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@dateebdev.com">info@dateebdev.com</a></li>
 		</ul>
 	</div>
 </div>
@@ -13,7 +13,7 @@
 <div class="header-bot">
 	<div class="container">
 		<div class="col-md-3 header-left">
-			<h1><a href="index.html"><img src="{{asset('frontEnd/images/logo3.jpg')}}"></a></h1>
+			<h1><a href="{{route('frontEnd.home')}}"><img src="{{asset('frontEnd/images/logo3.jpg')}}"></a></h1>
 		</div>
 		<div class="col-md-6 header-middle">
 			<form>
@@ -23,11 +23,12 @@
 				<div class="section_room">
 					<select id="country" onchange="change_country(this.value)" class="frm-field required">
 						<option value="null">All categories</option>
-						<option value="null">Electronics</option>
-						<option value="AX">kids Wear</option>
-						<option value="AX">Men's Wear</option>
-						<option value="AX">Women's Wear</option>
-						<option value="AX">Watches</option>
+						<option value="null">Buah</option>
+						<option value="AX">Rempah</option>
+						<option value="AX">Lauk Pauk</option>
+						<option value="AX">Terlaris</option>
+						<option value="AX">Beras</option>
+						<option value="AX">Siap Konsumsi</option>
 					</select>
 				</div>
 				<div class="sear-sub">
@@ -69,9 +70,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav menu__list">
-					<li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
+					<!-- <li class="active menu__item menu__item--current"><a class="menu__link" href="{{route('frontEnd.home')}}">Home <span class="sr-only">(current)</span></a></li> -->
 					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">men's wear <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">shop <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="row">
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
@@ -103,7 +104,7 @@
 								</div>
 							</ul>
 					</li>
-					<li class="dropdown menu__item">
+					<!-- <li class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">women's wear <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="row">
@@ -135,10 +136,12 @@
 									<div class="clearfix"></div>
 								</div>
 							</ul>
-					</li>
-					<li class=" menu__item"><a class="menu__link" href="electronics.html">Electronics</a></li>
-					<li class=" menu__item"><a class="menu__link" href="codes.html">Short Codes</a></li>
-					<li class=" menu__item"><a class="menu__link" href="contact.html">contact</a></li>
+					</li> -->
+					<li class=" menu__item"><a class="menu__link" href="electronics.html">News And Promo</a></li>
+					<li class=" menu__item"><a class="menu__link" href="codes.html">How It Works</a></li>
+					<li class=" menu__item"><a class="menu__link" href="codes.html">FAQ</a></li>
+					<li class=" menu__item"><a class="menu__link" href="codes.html">How To Pay</a></li>
+					<li class=" menu__item"><a class="menu__link" href="{{route('frontEnd.contact')}}">contact</a></li>
 				  </ul>
 				</div>
 			  </div>

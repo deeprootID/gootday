@@ -47,7 +47,7 @@
 <!-- //banner -->
 <!-- content -->
 
-<div class="new_arrivals">
+<!-- <div class="new_arrivals">
 	<div class="container">
 		<h3><span>new </span>arrivals</h3>
 		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
@@ -93,12 +93,12 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
+</div> -->
 <!-- //content -->
 
 <!-- content-bottom -->
 
-<div class="content-bottom">
+<!-- <div class="content-bottom">
 	<div class="col-md-7 content-lgrid">
 		<div class="col-sm-6 content-img-left text-center">
 			<div class="content-grid-effect slow-zoom vertical">
@@ -152,7 +152,7 @@
 			</div>
 	</div>
 	<div class="clearfix"></div>
-</div>
+</div> -->
 <!-- //content-bottom -->
 
 <!-- product-nav -->

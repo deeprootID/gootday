@@ -1,5 +1,5 @@
 /*--
-Author: W3layouts
+Author: W3layouts - Edited
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
@@ -32,7 +32,7 @@ input[type="button"],input[type="submit"]{
 h1,h2,h3,h4,h5,h6{
 	margin:0;
 	font-family: 'Montserrat', sans-serif;
-}	
+}
 p{
 	margin:0;
 }
@@ -58,7 +58,7 @@ label{
 }
 .header ul li:nth-child(2) {
     border-left: 1px solid #eee;
-    border-right: 1px solid #eee;	
+    border-right: 1px solid #eee;
 }
 .header ul li a {
 	color:#848484;
@@ -79,7 +79,7 @@ label{
     text-align: right;
 }
 .header-left{
-    text-align: left;	
+    text-align: left;
 }
 /*-- //header --*/
 
@@ -159,11 +159,11 @@ label{
 }
 .section_room{
     float: left;
-    width: 33%;	
+    width: 33%;
 }
 .sear-sub{
     float: right;
-    width: 10%;		
+    width: 10%;
 }
 .header-middle {
     border: 1px solid #eee;
@@ -410,7 +410,7 @@ a.simpleCart_empty {
 }
 /*-- //banner-top --*/
 /*-- banner --*/
-	
+
 /*-- Slider Part starts Here --*/
 #slider3,#slider4  {
   box-shadow: none;
@@ -640,7 +640,7 @@ ul.social-slide li i.mac{
   -ms-border-radius: 30px;
 }
 .callbacks_here a:after{
-	background: #FDA30E;	
+	background: #FDA30E;
 }
 a.callbacks_nav.callbacks2_nav.prev {
 background: transparent url("../images/2.png") no-repeat left top;
@@ -719,7 +719,7 @@ top: 9%;
 	text-decoration:none;
 }
 .sign-gd ul li a:hover,.sign-gd-two ul li a:hover{
-    color: #FDA30E;	
+    color: #FDA30E;
 }
 .sign-gd-two ul li i{
 	color: #999;
@@ -756,7 +756,7 @@ p.copy-right a{
 	text-decoration:none;
 }
 p.copy-right a:hover{
-color: #FDA30E;	
+color: #FDA30E;
 }
 /*-- //footer --*/
 /*-- new_arrivals --*/
@@ -1241,7 +1241,7 @@ text-align:center;
 .resp-tabs-container {
 	padding: 0px;
 	clear: left;
-	
+
 }
 h2.resp-accordion {
 	cursor: pointer;
@@ -1463,7 +1463,7 @@ a.single-item{
     margin: 6px 0 17px 0px;
 }
 .login-right input[type="text"]:hover, .login-right input[type="password"]:hover, .login-bottom input[type="text"]:hover, .login-bottom input[type="password"]:hover{
-    border: 1px solid #FDA30E;	
+    border: 1px solid #FDA30E;
 }
 .login-right h4,.login-bottom h4 {
     color: #000000;
@@ -1508,7 +1508,7 @@ a.single-item{
     text-decoration: none;
 }
 .sign-in a:hover{
-    color: #FDA30E;	
+    color: #FDA30E;
 }
 .single-bottom input[type="checkbox"] {
   display: none;
@@ -1555,7 +1555,7 @@ a.single-item{
     text-decoration: none;
 }
 .login-grids p a:hover{
-    color: #FDA30E;	
+    color: #FDA30E;
 }
 /*-- //login --*/
 
@@ -1584,7 +1584,7 @@ ul.multi-column-dropdown li {
 ul.multi-column-dropdown li a {
 text-decoration:none;
 font-size:14px;
-color:#8E8E8E;	
+color:#8E8E8E;
 }
 ul.multi-column-dropdown li a:hover{
 	color:#FDA30E;
@@ -1711,13 +1711,13 @@ h3.tittle {
     resize: none;
 }
 .contact-form2 input[type="text"],.contact-form2 input[type="email"]{
-    width: 49%;	
+    width: 49%;
 }
 .contact-form2 input[type="email"]{
 	margin-left:1.5%;
 }
 .contact-form2 input[type="text"]:hover,.contact-form2 input[type="email"]:hover,.contact-form2 textarea:hover{
-    border: 1px solid #FDA30E;	
+    border: 1px solid #FDA30E;
 }
 .contact-form2 textarea{
 	min-height:220px;
@@ -1764,7 +1764,7 @@ h3.tittle {
     padding-top: 45px;
 }
 .contact-grid2{
-	background: url(../images/new2.jpg) no-repeat center;		
+	background: url(../images/new2.jpg) no-repeat center;
 }
 .contact-grid1{
 	background: url(../images/new3.jpg) no-repeat center;
@@ -1788,7 +1788,7 @@ h3.tittle {
 	text-decoration:none;
 }
 .contact-grid p span {
-display:block;	
+display:block;
 }
 .contact,.typrography{
 	padding:90px 0;
@@ -1804,8 +1804,8 @@ display:block;
 }
 .tab-content {
 	padding: 15px;
-	padding-top: 0px; 
-	padding-left: 0px; 
+	padding-top: 0px;
+	padding-left: 0px;
 	padding-bottom: 0px;
 	border-top: none;
 }
@@ -1857,7 +1857,7 @@ display:block;
 .grid_4{
 	background:#fff;
 	padding:0em 0em 0em 0em;
-}  
+}
 .grid_5{
 	background:#fff;
 	padding:1em 0 2em 0;
@@ -2098,7 +2098,7 @@ text-decoration: none;
 }
 .range,.range-two{
 padding: 15px 0 22px 0;
-border-bottom: 1px solid #e5e3db; 
+border-bottom: 1px solid #e5e3db;
 }
 /*-- //Slider range --*/
 .filter-price h3 {
@@ -2218,19 +2218,19 @@ border-bottom: 1px solid #e5e3db;
 /* webkit adjacent element selector bugfix */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 {
-	.css-treeview 
+	.css-treeview
 	{
 		-webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
 	}
-	
-	@-webkit-keyframes webkit-adjacent-element-selector-bugfix 
+
+	@-webkit-keyframes webkit-adjacent-element-selector-bugfix
 	{
-		from 
-		{ 
+		from
+		{
 			padding: 0;
-		} 
-		to 
-		{ 
+		}
+		to
+		{
 			padding: 0;
 		}
 	}
@@ -2383,7 +2383,7 @@ label.checkbox {
     margin: 19px 0 0;
 }
 .swit input[type="submit"]:hover{
-background:#FDA30E;	
+background:#FDA30E;
 }
 /*-- //treeview --*/
 .men-wear-left{
@@ -2496,7 +2496,7 @@ background:#FDA30E;
 	color:#ccc;
 	font-size:13px;
 	width:45%;
-	outline:none;	
+	outline:none;
 }
 .description input[type="submit"]{
     color: #fff;
@@ -2504,7 +2504,7 @@ background:#FDA30E;
     background: #FDA30E;
     border: none;
     outline: none;
-    padding: 7px 17px 9px;	
+    padding: 7px 17px 9px;
 }
 .description input[type="submit"]:hover{
 	background:#000;
@@ -2754,12 +2754,12 @@ td.invert-image a img {
 }
 .quantity-select .entry.value-minus:before,
 .quantity-select .entry.value-plus:before{
-	content: ""; 
+	content: "";
 	width: 13px;
-	height: 2px; 
+	height: 2px;
 	background: #FDA30E;
 	left: 50%;
-	margin-left: -7px; 
+	margin-left: -7px;
 	top: 50%;
 	margin-top: -0.5px;
 	position: absolute;
@@ -2767,9 +2767,9 @@ td.invert-image a img {
 .quantity-select .entry.value-plus:after{
 	content: "";
 	height: 13px;
-	width: 2px; 
+	width: 2px;
 	background: #FDA30E;
-	left: 50%; 
+	left: 50%;
 	margin-left: -1.4px;
     top: 50%;
     margin-top: -6.2px;
@@ -2867,7 +2867,7 @@ td.invert-image a img {
 	.content-img-right {
 		padding: 77px 50px 0px;
 		min-height: 293px;
-	}	
+	}
 }
 @media (max-width: 1280px){
 	.content-img-right h3 span {
@@ -2886,7 +2886,7 @@ td.invert-image a img {
 	}
 	.separator {
 		margin: 15px auto;
-	}	
+	}
 }
 @media (max-width: 1080px){
 	.footer-bottom a span {
@@ -3100,7 +3100,7 @@ td.invert-image a img {
 	}
 	.bootstrap-tab-text-grid-right p,.new_arrivals p {
 		font-size: 14px;
-	}	
+	}
 }
 @media (max-width: 991px){
 	.footer-bottom a span {
@@ -3155,7 +3155,7 @@ td.invert-image a img {
 		margin: 0% auto 9px;
 	}
 	.mid-img:nth-child(2){
-		margin: 19px auto 0px;	
+		margin: 19px auto 0px;
 	}
 	.mid-text {
 		float: none;
@@ -3236,7 +3236,7 @@ td.invert-image a img {
 	}
 	.coupons-gd h3 {
 		margin: 0 0 30px;
-	}	
+	}
 	.coupons {
 		min-height: 400px;
 		padding-top: 60px;
@@ -3441,7 +3441,7 @@ td.invert-image a img {
 	}
 	.modal-dialog {
 		width: 675px;
-	}	
+	}
 }
 @media (max-width: 768px){
 	.pignose-layerslider .slide-visual {
@@ -3510,7 +3510,7 @@ td.invert-image a img {
 	}
 	.checkout h3 {
 		margin: 0 0 2em;
-	}	
+	}
 }
 @media (max-width: 767px){
 	.navbar-toggle {
@@ -3556,7 +3556,7 @@ td.invert-image a img {
 	}
 	.nav > li > a {
 		display: inline-block;
-	}	
+	}
 
 	.multi-gd-img {
 		float: left;
@@ -3657,7 +3657,7 @@ td.invert-image a img {
 		float: left;
 		width: 34%;
 		padding-left: 8px;
-	}	
+	}
 	.header-middle {
 		float: left;
 		width: 43%;
@@ -3988,7 +3988,7 @@ td.invert-image a img {
 	}
 	.page-head {
 		min-height: 143px;
-	}	
+	}
 	.css-treeview label {
 		font-size: 13px;
 	}
@@ -4199,7 +4199,7 @@ td.invert-image a img {
 	.content-img-right {
 		padding: 35px 21px 0px;
 		min-height: 179.5px;
-	}	
+	}
 	.quantity-select {
 		padding: 0 0px;
 	}
@@ -4242,7 +4242,7 @@ td.invert-image a img {
 	td.invert-image a img {
 		width: 100%;
 	}
-	
+
 	.value-minus, .value-plus {
 		margin: 0;
 	}
@@ -4805,7 +4805,7 @@ td.invert-image a img {
 	}
 	.flex-control-thumbs li:nth-child(4), .flex-control-thumbs li:nth-child(1) {
 		margin: 0;
-	}	
+	}
 	.pagination-lg > li > a, .pagination-lg > li > span {
     padding: 10px 10px;
 	}
@@ -5065,7 +5065,7 @@ td.invert-image a img {
 	.login-grids p {
 		font-size: 13px;
 		margin-top: 23px;
-	}	
+	}
 	.checkout h3 {
 		font-size: 22px;
 	}

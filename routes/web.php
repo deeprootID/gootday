@@ -28,3 +28,9 @@ Route::post('/admin/category/store', 'CategoryController@store')->name('category
 Route::get('/admin/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
 Route::post('/admin/category/update/{id}', 'CategoryController@update')->name('category.update');
 Route::get('/admin/category/delete/{id}', 'CategoryController@destroy')->name('category.delete');
+
+// Contacts
+Route::get('/contact', 'FrontEndContactController@getMaster')->name('frontEnd.contact');
+
+// Products
+Route::get('/shop', 'ProductController@index')->name('product.index');
