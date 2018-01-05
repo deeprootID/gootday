@@ -174,9 +174,9 @@
     <div class="sap_tabs">
       <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
         <ul class="resp-tabs-list">
-          <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Latest Designs</span></li>
-          <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Special Offers</span></li>
-          <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Collections</span></li>
+          <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Promo Spesial</span></li>
+          <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Pilihan Terbaru</span></li>
+          <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Terlaris</span></li>
         </ul>
         <div class="resp-tabs-container">
           <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">

@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('frontEnd.products.index')->with('products', $products);
+        return view('backEnd.product.index')->with('products', $products);
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('backEnd.product.createProduct');
     }
 
     /**
@@ -36,7 +36,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->nama = $request->product_name;
+        $product->stok = $request->product_stock;
+        $product->deskripsi = $request->product_description;
+        $product->gambar = $request->product_image;
+        $product->harga = $request->product_price;
+        $product->harga_diskon = $request->product_price_discount;
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -58,7 +66,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('backEnd.product.editProduct')->with('product', $product);
     }
 
     /**
@@ -70,7 +79,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->nama = $request->input('product_name');
+        $product->stok = $request->input('product_stock');
+        $product->deskripsi = $request->input('product_description');
+        $product->gambar = $request->input('product_image');
+        $product->harga = $request->input('product_price');
+        $product->harga_diskon = $request->input('product_price_discount');
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -81,6 +98,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }

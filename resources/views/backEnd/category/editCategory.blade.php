@@ -4,7 +4,7 @@
 @section('content')
 <section class="content">
     <div class="col-xs-12">
-        <form id="editCategoryForm" action="{{route('category.update', $category->id)}}" method="POST">
+        <form action="{{route('category.update', $category->id)}}" method="POST">
             {{csrf_field()}}
             <div class="form-group">
                 <input class="form-control" type="text" name="category_name" value="{{$category->category_name}}">

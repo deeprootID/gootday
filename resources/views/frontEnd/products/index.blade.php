@@ -261,7 +261,7 @@
 
 		<div class="single-pro">
 			@foreach($products as $product)
-			<div class="col-md-3 product-men">
+			<div class="col-md-3 product-men yes-marg">
 				<div class="men-pro-item simpleCart_shelfItem">
 					<div class="men-thumb-item">
 						<img src="{{asset('frontEnd/images/a8.png')}}" alt="" class="pro-image-front">
