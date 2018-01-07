@@ -27,6 +27,9 @@ Route::get('/shop', 'FrontEndProductController@getMaster')->name('frontEnd.produ
 // User profile
 Route::get('/user/profile', 'UserController@getProfile')->name('user.profile')->middleware('auth');
 
+// Shopping Cart
+Route::get('/shopping-cart', 'FrontEndProductController@getCart')->name('frontEnd.shoppingCart');
+
 //  <--------------------- ###### ------------------->
 
 // BackEnd
@@ -59,6 +62,9 @@ Route::get('/user/logout', 'UserController@getLogout')->name('user.logout')->mid
 
 // Add to Cart
 Route::get('/add-to-cart/{id}', 'FrontEndProductController@getAddtoCart')->name('product.addToCart');
+
+// Checkout
+Route::get('/checkout', 'FrontEndProductController@getCheckout')->name('product.checkout');
 
 Auth::routes();
 

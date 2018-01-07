@@ -15,10 +15,10 @@ class Cart {
         }
     }
 
-    public function add($item, $add) {
+    public function add($item, $id) {
         $storedItem = [
             'qty' => 0,
-            'price' => $item->price,
+            'price' => $item->harga_diskon,
             'item' => $item
         ];
         if($this->items) {
@@ -27,9 +27,9 @@ class Cart {
             }
         }
         $storedItem['qty']++;
-        $storedItem['price'] = $item->price * $storedItem['qty'];
+        $storedItem['price'] = $item->harga_diskon;
         $this->items[$id] = $storedItem;
         $this->totalQty++;
-        $this->totalPrice += $item->price;
+        $this->totalPrice += $item->harga_diskon;
     }
 }

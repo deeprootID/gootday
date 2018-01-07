@@ -276,10 +276,10 @@
 					<div class="item-info-product ">
 						<h4><a href="single.html">{{$product->nama}}</a></h4>
 						<div class="info-product-price">
-							<span class="item_price">{{$product->harga}}</span>
-							<del>{{$product->harga_diskon}}</del>
+							<span class="item_price">{{$product->harga_diskon}}</span>
+							<del>{{$product->harga}}</del>
 						</div>
-						<a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+						<a href="{{ route('product.addToCart', ['id' => $product->id]) }}" class="item_add single-item hvr-outline-out button2">Add to cart</a>
 					</div>
 				</div>
 			</div>

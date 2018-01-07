@@ -82,7 +82,7 @@
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="mens.html">Clothing</a></li>
+											<li><a href="{{ route('frontEnd.product') }}">Clothing</a></li>
 											<li><a href="mens.html">Wallets</a></li>
 											<li><a href="mens.html">Footwear</a></li>
 											<li><a href="mens.html">Watches</a></li>
@@ -151,15 +151,14 @@
 		</div>
 		<div class="top_nav_right">
 			<div class="cart box_1">
-						<a href="checkout.html">
-							<h3> <div class="total">
-								<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+				<a href="{{ route('frontEnd.shoppingCart') }}">
+					<h3> <div class="total">
+						<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+						<span>{{ Session::has('cart') ? Session::get('cart')->totalPrice : '0' }}</span> (<span>{{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}</span> items)</div>
 
-							</h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-
+					</h3>
+				</a>
+				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 			</div>
 		</div>
 		<div class="clearfix"></div>
