@@ -11,4 +11,8 @@ class FrontEndProductController extends Controller
         $products = Product::all();
         return view('frontEnd.products.index')->with('products', $products);
     }
+
+    public function getAddtoCart(Request $request, $id) {
+        $product = Product::find($id);
+    }
 }

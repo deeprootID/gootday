@@ -108,7 +108,12 @@ label{
 .header-right ul li a.use1:hover {
     transform: inherit;
 }
-
+.header-right ul li a.use2{
+	background:url(../images/img-sp.png) no-repeat -133px -1px;
+}
+.header-right ul li a.use2:hover {
+    transform: inherit;
+}
 .header-right ul li a.fb{
 	background:url(../images/img-sp.png) no-repeat 0px 0px;
 }
