@@ -71,6 +71,7 @@
 		<div class="checkout-left">	
             <div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
                 <a href="{{ route('frontEnd.product') }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping</a>
+                <a href="{{ route('frontEnd.checkout') }}">Continue to Checkout<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
             </div>
             <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
                 <h4>Shopping basket</h4>

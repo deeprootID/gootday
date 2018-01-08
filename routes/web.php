@@ -30,6 +30,9 @@ Route::get('/user/profile', 'UserController@getProfile')->name('user.profile')->
 // Shopping Cart
 Route::get('/shopping-cart', 'FrontEndProductController@getCart')->name('frontEnd.shoppingCart');
 
+// Checkout
+Route::get('/checkout', 'FrontEndProductController@getCheckout')->name('frontEnd.checkout');
+
 //  <--------------------- ###### ------------------->
 
 // BackEnd
@@ -64,7 +67,7 @@ Route::get('/user/logout', 'UserController@getLogout')->name('user.logout')->mid
 Route::get('/add-to-cart/{id}', 'FrontEndProductController@getAddtoCart')->name('product.addToCart');
 
 // Checkout
-Route::get('/checkout', 'FrontEndProductController@getCheckout')->name('product.checkout');
+Route::post('/checkout', 'FrontEndProductController@postCheckout')->name('product.checkout');
 
 Auth::routes();
 
