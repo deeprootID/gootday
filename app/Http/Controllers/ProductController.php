@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backEnd.product.createProduct');
+        $categories = Category::all();
+        return view('backEnd.product.createProduct')->with('categories', $categories);
     }
 
     /**
@@ -39,10 +41,18 @@ class ProductController extends Controller
         $product = new Product();
         $product->nama = $request->product_name;
         $product->stok = $request->product_stock;
+        $product->kategori = $request->product_category;
+        $product->berat = $request->product_weight;
         $product->deskripsi = $request->product_description;
-        $product->gambar = $request->product_image;
+
+        $file = $request->file('product_image');
+        $fileName = time().'.'.$file->getClientOriginalExtension();
+        $request->file('product_image')->move('image', $fileName);
+        $product->gambar = $fileName;
+
         $product->harga = $request->product_price;
         $product->harga_diskon = $request->product_price_discount;
+        // dd($file);
         $product->save();
         return redirect()->route('product.index');
     }
@@ -82,6 +92,8 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->nama = $request->input('product_name');
         $product->stok = $request->input('product_stock');
+        $product->kategori = $request->input('product_category');
+        $product->berat = $request->input('product_weight');
         $product->deskripsi = $request->input('product_description');
         $product->gambar = $request->input('product_image');
         $product->harga = $request->input('product_price');

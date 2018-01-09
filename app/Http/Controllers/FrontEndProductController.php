@@ -28,6 +28,44 @@ class FrontEndProductController extends Controller
         return redirect()->route('frontEnd.product');
     }
 
+    public function getAdd($id) {
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+
+        Session::put('cart', $cart);
+        return redirect()->route('frontEnd.shoppingCart');
+    }
+
+    public function getRemove($id) {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->remove($id);
+
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+        
+        return redirect()->route('frontEnd.shoppingCart');
+    }
+
+    public function getRemoveAll($id) {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeAll($id);
+
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+        
+        return redirect()->route('frontEnd.shoppingCart');
+    }
+
     public function getCart() {
         if(!Session::has('cart')) {
             return view('frontEnd.shoppingcart.index');
@@ -65,5 +103,18 @@ class FrontEndProductController extends Controller
 
         Session::forget('cart');
         return redirect()->route('frontEnd.product')->with('success', 'Produk sukses dibeli. Terimakasih atas pembelian Anda !');
+    }
+
+    public function getSearch(Request $request){
+        $search = $request->input('search');
+        $kategori = $request->input('kategori');
+        $products = Product::where('nama', 'like', '%'.$search.'%')
+            ->orWhere('stok', 'like', '%'.$search.'%')
+            ->orWhere('berat', 'like', '%'.$search.'%')
+            ->orWhere('deskripsi', 'like', '%'.$search.'%')
+            ->orWhere('harga_diskon', 'like', '%'.$search.'%')
+            ->orWhere('kategori', $kategori)
+            ->get();
+        return view('frontEnd.home.search')->with('products', $products);
     }
 }

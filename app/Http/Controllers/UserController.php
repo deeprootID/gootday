@@ -10,7 +10,12 @@ use Auth;
 class UserController extends Controller
 {
     public function getProfile() {
-        return view('frontEnd.user.index');
+        $orders = Auth::user()->orders;
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        return view('frontEnd.user.index', ['orders' => $orders]);
     }
 
     public function postSignup(Request $request) {

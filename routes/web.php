@@ -18,6 +18,9 @@
 // FrontEnd
 Route::get('/', 'FrontEndHomeController@getMaster')->name('frontEnd.home');
 
+// Search
+Route::post('/search', 'FrontEndProductController@getSearch')->name('product.search');
+
 // Contacts
 Route::get('/contact', 'FrontEndContactController@getMaster')->name('frontEnd.contact')->middleware('guest');
 
@@ -30,6 +33,15 @@ Route::get('/user/profile', 'UserController@getProfile')->name('user.profile')->
 // Shopping Cart
 Route::get('/shopping-cart', 'FrontEndProductController@getCart')->name('frontEnd.shoppingCart');
 
+// Shopping Cart - add product by one
+Route::get('/shopping-cart/add/{id}', 'FrontEndProductController@getAdd')->name('shoppingCart.product.add');
+
+// Shopping Cart - remove product by one
+Route::get('/shopping-cart/remove/{id}', 'FrontEndProductController@getRemove')->name('shoppingCart.product.remove');
+
+// Shopping cart - remove whole items
+Route::get('/shopping-cart/remove-all/{id}', 'FrontEndProductController@getRemoveAll')->name('shoppingCart.product.removeAll');
+
 // Checkout
 Route::get('/checkout', 'FrontEndProductController@getCheckout')->name('frontEnd.checkout')->middleware('auth');
 
@@ -37,6 +49,9 @@ Route::get('/checkout', 'FrontEndProductController@getCheckout')->name('frontEnd
 
 // BackEnd
 Route::get('/admin', 'AdminHomeController@getMaster')->name('admin.home')->middleware('guest');
+
+// Login - Admin
+Route::get('/admin/login', 'AdminHomeController@getLogin')->name('admin.login');
 
 // Category - Admin
 Route::get('/admin/category/create', 'CategoryController@create')->name('category.create')->middleware('guest');

@@ -27,25 +27,16 @@
                 @foreach($products as $product)
                     <tr class="rem1">
                         <td class="invert-closeb">
-                            <div class="rem">
-                                <div class="close1"> </div>
-                            </div>
-                            <script>$(document).ready(function(c) {
-                                $('.close1').on('click', function(c){
-                                    $('.rem1').fadeOut('slow', function(c){
-                                        $('.rem1').remove();
-                                    });
-                                    });	  
-                                });
-                            </script>
+                            <a href="{{ route('shoppingCart.product.removeAll', ['id' => $product['item']['id']]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                         </td>
-                        <td class="invert-image"><a href="single.html"><img src="images/w4.png" alt=" " class="img-responsive" /></a></td>
+                        <td class="invert-image"><a href="single.html"><img src="image/{{ $product['item']['gambar'] }}" alt=" " class="img-responsive" /></a></td>
                         <td class="invert">
-                                <div class="quantity"> 
+                            <div class="quantity"> 
                                 <div class="quantity-select">                           
-                                    <div class="entry value-minus">&nbsp;</div>
+                                    {{--  <div class="entry value-minus" style="position: relative;"><a href="{{ route('shoppingCart.product.remove', ['id' => $product['item']['id']]) }}"><span></span></a></div>  --}}
+                                    <a href="{{ route('shoppingCart.product.remove', ['id' => $product['item']['id']]) }}" class="btn btn-warning"><span class="glyphicon glyphicon-minus"></span></a>
                                     <div class="entry value"><span>{{ $product['qty'] }}</span></div>
-                                    <div class="entry value-plus active">&nbsp;</div>
+                                    <a href="{{ route('shoppingCart.product.add', ['id' => $product['item']['id']]) }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
                                 </div>
                             </div>
                         </td>
@@ -53,7 +44,7 @@
                         <td class="invert">{{ $product['price'] }}</td>
                     </tr>
                 @endforeach
-                <!--quantity-->
+                {{--  <!--quantity-->
                 <script>
                 $('.value-plus').on('click', function(){
                     var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
@@ -65,7 +56,7 @@
                     if(newVal>=1) divUpd.text(newVal);
                 });
                 </script>
-                <!--quantity-->
+                <!--quantity-->  --}}
 			</table>
 		</div>
 		<div class="checkout-left">	

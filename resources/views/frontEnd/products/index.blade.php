@@ -276,8 +276,8 @@
 			<div class="col-md-3 product-men yes-marg">
 				<div class="men-pro-item simpleCart_shelfItem">
 					<div class="men-thumb-item">
-						<img src="{{asset('frontEnd/images/a8.png')}}" alt="" class="pro-image-front">
-						<img src="{{asset('frontEnd/images/a8.png')}}" alt="" class="pro-image-back">
+						<img src="/image/{{ $product->gambar }}" alt="" class="pro-image-front">
+						<img src="/image/{{ $product->gambar }}" alt="" class="pro-image-back">
 							<div class="men-cart-pro">
 								<div class="inner-men-cart-pro">
 									<a href="single.html" class="link-product-add-cart">Quick View</a>

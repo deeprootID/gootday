@@ -16,25 +16,25 @@
 			<h1><a href="{{route('frontEnd.home')}}"><img src="{{asset('frontEnd/images/logo3.jpg')}}"></a></h1>
 		</div>
 		<div class="col-md-6 header-middle">
-			<form>
+			<form action="{{ route('product.search') }}" method="POST">
 				<div class="search">
-					<input type="search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+					<input name="search" type="search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
 				</div>
 				<div class="section_room">
-					<select id="country" onchange="change_country(this.value)" class="frm-field required">
+					<select id="kategori" name="kategori" onchange="change_country(this.value)" class="frm-field required">
 						<option value="null">All categories</option>
-						<option value="null">Buah</option>
-						<option value="AX">Rempah</option>
-						<option value="AX">Lauk Pauk</option>
-						<option value="AX">Terlaris</option>
-						<option value="AX">Beras</option>
-						<option value="AX">Siap Konsumsi</option>
+						<option value="Buah">Buah</option>
+						<option value="Rempah">Rempah</option>
+						<option value="Lauk Pauk">Lauk Pauk</option>
+						<option value="Beras">Beras</option>
+						<option value="Siap Konsumsi">Siap Konsumsi</option>
 					</select>
 				</div>
 				<div class="sear-sub">
-					<input type="submit" value=" ">
+					<input type="submit" value="">
 				</div>
 				<div class="clearfix"></div>
+				{{ csrf_field() }}
 			</form>
 		</div>
 		<div class="col-md-3 header-right footer-bottom">

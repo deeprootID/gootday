@@ -9,6 +9,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Category</th>
+                    <th>Weight</th>
                     <th>Stock</th>
                     <th>Description</th>
                     <th>Image</th>
@@ -21,6 +23,8 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->nama}}</td>
+                    <td>{{$product->kategori}}</td>
+                    <td>{{$product->berat}}</td>
                     <td>{{$product->stok}}</td>
                     <td>{{$product->deskripsi}}</td>
                     <td>{{$product->gambar}}</td>
