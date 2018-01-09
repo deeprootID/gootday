@@ -14,14 +14,16 @@ $form.submit(function(event){
         cvc: $('#card-cvc').val()
     }).then(function(result) {
         // Handle result.error or result.token
-        $('#charge-error').removeClass('hidden');
-        $('#charge-error').text(result.error.message);
-        $form.find('button').prop('disabled', false);
+        if(result.error){
+            $('#charge-error').removeClass('hidden');
+            $('#charge-error').text(result.error.message);
+            $form.find('button').prop('disabled', false);
+        } else {
+            var token = result.token;
+            $form.append($('<input type="hidden" name="stripeToken"/>').val(token));
 
-        var token = result.token;
-        $form.append($('<input type="hidden" name="stripeToken"/>').val(token));
-
-        $form.get(0).submit();
+            $form.get(0).submit();
+        }
     });
     return false;
 });

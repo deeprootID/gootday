@@ -2,6 +2,18 @@
 @section('page-title', 'Shop')
 @section('content')
 
+@if(Session::has('success'))
+	<div class="row">
+		<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+			<div id="charge-message" class="alert alert-success" style="margin-top: 20px; margin-bottom: -70px;">
+				<center>
+					{{ Session::get('success') }}
+				</center>
+			</div>
+		</div>
+	</div>
+@endif
+
 <!-- mens -->
 <div class="men-wear">
 	<div class="container">

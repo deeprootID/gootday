@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
@@ -29,6 +30,12 @@ class UserController extends Controller
 
         Auth::login($user);
 
+        if(Session::has('oldUrl')){
+            $oldUrl = Session::get('oldUrl');
+            Session::forget('oldUrl');
+            return redirect()->to($oldUrl);
+        }
+
         return redirect()->route('user.profile');
     }
 
@@ -42,6 +49,11 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password')
         ])) {
+            if(Session::has('oldUrl')){
+                $oldUrl = Session::get('oldUrl');
+                Session::forget('oldUrl');
+                return redirect()->to($oldUrl);
+            }
             return redirect()->route('user.profile');
         }
     }

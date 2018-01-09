@@ -4,11 +4,11 @@
 <!-- banner -->
 <div class="page-head">
 	<div class="container">
-		<h3>Contact</h3>
+		<h3>User Profile</h3>
 	</div>
 </div>
 <!-- //banner -->
-<h1>
-    <p>Profile</p>
-</h1>
+
+
+
 @endsection
