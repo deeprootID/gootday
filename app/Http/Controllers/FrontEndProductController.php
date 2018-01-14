@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
+use App\Category;
 use Stripe\Stripe;
 use Stripe\Charge;
 use App\Order;
@@ -15,8 +16,15 @@ class FrontEndProductController extends Controller
 {
     public function getMaster(){
         $products = Product::all();
-        return view('frontEnd.products.index')->with('products', $products);
+        $categoriesShort = Category::whereRaw('char_length(category_name) < 12')->get();
+        $categoriesLong = Category::whereRaw('char_length(category_name) > 12')->get();
+        return view('frontEnd.products.index')->with('products', $products)->with('categoriesShort', $categoriesShort)->with('categoriesLong', $categoriesLong);
     }
+
+    public function index(){
+        $products = Product::all();
+        return view('frontEnd.home.index')->with('products', $products);
+    }    
 
     public function getAddtoCart(Request $request, $id) {
         $product = Product::find($id);
@@ -25,7 +33,8 @@ class FrontEndProductController extends Controller
         $cart->add($product, $product->id);
 
         $request->session()->put('cart', $cart);
-        return redirect()->route('frontEnd.product');
+        $request->session()->flash('message', 'Product has been added to the cart !');
+        return redirect()->back();//->with('message', 'Product has been added to the cart !');
     }
 
     public function getAdd($id) {
@@ -192,19 +201,26 @@ class FrontEndProductController extends Controller
         Auth::user()->orders()->save($order);
 
         Session::forget('cart');
-        return redirect()->route('frontEnd.product')->with('success', 'Produk sukses dibeli. Terimakasih atas pembelian Anda !');
+        return redirect()->route('frontEnd.product')->with('success', 'Complete the payment, wait for us to confirm your payment! It only needs couple of hours. Thank you ! ');
     }
 
     public function getSearch(Request $request){
         $search = $request->input('search');
         $kategori = $request->input('kategori');
         $products = Product::where('nama', 'like', '%'.$search.'%')
-            ->orWhere('stok', 'like', '%'.$search.'%')
-            ->orWhere('berat', 'like', '%'.$search.'%')
-            ->orWhere('deskripsi', 'like', '%'.$search.'%')
-            ->orWhere('harga_diskon', 'like', '%'.$search.'%')
             ->orWhere('kategori', $kategori)
             ->get();
-        return view('frontEnd.home.search')->with('products', $products);
+        return view('frontEnd.home.search')->with('products', $products)->with('search', $search);
+        // dd($search, $kategori);
+    }
+
+    public function getProductDetail($id){
+        $product = Product::find($id);
+        return view('frontEnd.products.detail')->with('product', $product);
+    }
+
+    public function getByCategory($kategori){
+        $products = Product::where('kategori', $kategori)->get();
+        return view('frontEnd.home.category')->with('products', $products)->with('kategori', $kategori);
     }
 }

@@ -16,10 +16,16 @@
 // });
 
 // FrontEnd
-Route::get('/', 'FrontEndHomeController@getMaster')->name('frontEnd.home');
+Route::get('/', 'FrontEndProductController@index')->name('frontEnd.home');
 
 // Search
 Route::post('/search', 'FrontEndProductController@getSearch')->name('product.search');
+
+// Show by Category
+Route::get('/category/{kategori}', 'FrontEndProductController@getByCategory')->name('product.getByCategory');
+
+// Product Detail
+Route::get('/detail/{id}', 'FrontEndProductController@getProductDetail')->name('product.detail');
 
 // Contacts
 Route::get('/contact', 'FrontEndContactController@getMaster')->name('frontEnd.contact')->middleware('guest');

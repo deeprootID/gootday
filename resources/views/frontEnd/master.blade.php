@@ -2,6 +2,7 @@
 <html>
 <head>
 	@include('frontEnd.includes.head')
+	<title>@yield('page-title')</title>
 	@yield('stylesheet')
 	@include('frontEnd.includes.script')
 </head>

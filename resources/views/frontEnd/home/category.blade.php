@@ -1,12 +1,26 @@
 @extends('frontEnd.master')
-@section('page-title', 'Search Product')
+@section('page-title', 'Product based on Category')
 @section('content')
-<!-- banner -->
+
+@if(Session::has('message'))
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-12">
+				<div id="charge-message" class="alert alert-success" style="margin-top: 20px; margin-bottom: 20px;">
+					<center>
+						{{ Session::get('message') }}
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+@endif
+
 
 <div class="product-easy">
 	<div class="container">
         @if(count($products) > 0)
-            <h3>We found {{ count($products) }} products related to "{{ $search }}"</h3>
+            <h3>We found {{ count($products) }} products in "{{ $kategori }}" category</h3>
             @foreach($products as $product)
             <div class="col-md-3 product-men yes-marg">
                 <div class="men-pro-item simpleCart_shelfItem">
@@ -33,7 +47,7 @@
             </div>
             @endforeach
         @else
-            <h3>No one product has name "{{ $search }}" found !</h3>
+            <h3>No one product with category "{{ $kategori }}" found !</h3>
         @endif
         <div class="clearfix"></div>
 	</div>

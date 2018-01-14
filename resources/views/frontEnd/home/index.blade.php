@@ -1,22 +1,39 @@
 @extends('frontEnd.master')
+@section('page-title', 'FRESHOP | WE PROVIDE EVERY FRESH PRODUCT !')
 @section('content')
 <!-- banner -->
+
+@if(Session::has('message'))
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-12">
+				<div id="charge-message" class="alert alert-success" style="margin-top: 20px; margin-bottom: 20px;">
+					<center>
+						{{ Session::get('message') }}
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+@endif
+
+
 <div class="banner-grid">
 	<div id="visual">
 		<div class="slide-visual">
 			<!-- Slide Image Area (1000 x 424) -->
 			<ul class="slide-group">
-				<li><img class="img-responsive" src="{{asset('frontEnd/images/ba1.jpg')}}" alt="Dummy Image" /></li>
-				<li><img class="img-responsive" src="{{asset('frontEnd/images/ba2.jpg')}}" alt="Dummy Image" /></li>
-				<li><img class="img-responsive" src="{{asset('frontEnd/images/ba3.jpg')}}" alt="Dummy Image" /></li>
+				<li><img class="img-responsive" src="{{asset('frontEnd/images/rsz_6x-lg-min.jpg')}}" alt="Dummy Image" /></li>
+				<li><img class="img-responsive" src="{{asset('frontEnd/images/rsz_credit-card-lg-min.jpg')}}" alt="Dummy Image" /></li>
+				<li><img class="img-responsive" src="{{asset('frontEnd/images/rsz_klikpanenkirim-lg-min.jpg')}}" alt="Dummy Image" /></li>
 			</ul>
 			
 			<!-- Slide Description Image Area (316 x 328) -->
 			<div class="script-wrap">
 				<ul class="script-group">
-					<li><div class="inner-script"><img class="img-responsive" src="{{asset('frontEnd/images/baa1.jpg')}}" alt="Dummy Image" /></div></li>
-					<li><div class="inner-script"><img class="img-responsive" src="{{asset('frontEnd/images/baa2.jpg')}}" alt="Dummy Image" /></div></li>
-					<li><div class="inner-script"><img class="img-responsive" src="{{asset('frontEnd/images/baa3.jpg')}}" alt="Dummy Image" /></div></li>
+					<li><div class="inner-script"><img class="img-responsive" src="{{asset('frontEnd/images/151554936022287047.jpeg')}}" alt="Dummy Image" /></div></li>
+					<li><div class="inner-script"><img class="img-responsive" src="{{asset('frontEnd/images/151554936022287048.jpeg')}}" alt="Dummy Image" /></div></li>
+					<li><div class="inner-script"><img class="img-responsive" src="{{asset('frontEnd/images/1515549360222870479.jpeg')}}" alt="Dummy Image" /></div></li>
 				</ul>
 				<div class="slide-controller">
 					<a href="#" class="btn-prev"><img src="{{asset('frontEnd/images/btn_prev.png')}}" alt="Prev Slide" /></a>
@@ -47,37 +64,37 @@
 <!-- //banner -->
 <!-- content -->
 
-<!-- <div class="new_arrivals">
+<div class="new_arrivals">
 	<div class="container">
 		<h3><span>new </span>arrivals</h3>
-		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+		<p>We want people to be getting good quality pesticide-free vegetables through farm-to-table concept.</p>
 		<div class="new_grids">
 			<div class="col-md-4 new-gd-left">
 				<img src="{{asset('frontEnd/images/wed1.jpg')}}" alt=" " />
 				<div class="wed-brand simpleCart_shelfItem">
-					<h4>Wedding Collections</h4>
-					<h5>Flat 50% Discount</h5>
-					<p><i>$250</i> <span class="item_price">$500</span><a class="item_add hvr-outline-out button2" href="#">add to cart </a></p>
+					<h4>Fragrant "Rempah"</h4>
+					<h5>Original from Maluku</h5>
+					<p><span class="item_price">Rp 30000 - Rp 750000</span><a class="item_add hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Rempah']) }}">Shop Now </a></p>
 				</div>
 			</div>
 			<div class="col-md-4 new-gd-middle">
 				<div class="new-levis">
 					<div class="mid-img">
-						<img src="{{asset('frontEnd/images/levis1.png')}}" alt=" " />
+						<img src="{{asset('frontEnd/images/lpi5kgkrg.jpg')}}" alt=" " />
 					</div>
 					<div class="mid-text">
 						<h4>up to 40% <span>off</span></h4>
-						<a class="hvr-outline-out button2" href="product.html">Shop now </a>
+						<a class="hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Beras']) }}">Shop now </a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="new-levis">
 					<div class="mid-text">
 						<h4>up to 50% <span>off</span></h4>
-						<a class="hvr-outline-out button2" href="product.html">Shop now </a>
+						<a class="hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Beras']) }}">Shop now </a>
 					</div>
 					<div class="mid-img">
-						<img src="{{asset('frontEnd/images/dig.jpg')}}" alt=" " />
+						<img src="{{asset('frontEnd/images/beras susu.jpg')}}" alt=" " />
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -86,51 +103,51 @@
 			<div class="col-md-4 new-gd-left">
 				<img src="{{asset('frontEnd/images/wed2.jpg')}}" alt=" " />
 				<div class="wed-brandtwo simpleCart_shelfItem">
-					<h4>Spring / Summer</h4>
-					<p>Shop Men</p>
+					<h4>Javanese Products</h4>
+					<p>Rice</p>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div> -->
+</div>
 <!-- //content -->
 
 <!-- content-bottom -->
 
-<!-- <div class="content-bottom">
+<div class="content-bottom">
 	<div class="col-md-7 content-lgrid">
 		<div class="col-sm-6 content-img-left text-center">
 			<div class="content-grid-effect slow-zoom vertical">
 				<div class="img-box"><img src="{{asset('frontEnd/images/p1.jpg')}}" alt="image" class="img-responsive zoom-img"></div>
 				<div class="info-box">
 					<div class="info-content simpleCart_shelfItem">
-						<h4>Mobiles</h4>
+						<h4>Vegetables</h4>
 						<span class="separator"></span>
-						<p><span class="item_price">$500</span></p>
+						<p><span class="item_price">Rp 2000 - Rp 20000</span></p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+						<a class="item_add hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Sayur Mayur']) }}">Shop Now </a>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6 content-img-right">
-			<h3>Special Offers and 50%<span>Discount On</span> Mobiles</h3>
+			<h3>Special Offers and 50%<span>Discount On</span> Vegetables</h3>
 		</div>
 		
 		<div class="col-sm-6 content-img-right">
-			<h3>Buy 1 get 1  free on <span> Branded</span> Watches</h3>
+			<h3>Buy 1 get 1 free <span> Fruit</span> from Taman Buah Mekarsari</h3>
 		</div>
 		<div class="col-sm-6 content-img-left text-center">
 			<div class="content-grid-effect slow-zoom vertical">
 				<div class="img-box"><img src="{{asset('frontEnd/images/p2.jpg')}}" alt="image" class="img-responsive zoom-img"></div>
 				<div class="info-box">
 					<div class="info-content simpleCart_shelfItem">
-						<h4>Watches</h4>
+						<h4>Fruit</h4>
 						<span class="separator"></span>
-						<p><span class="item_price">$250</span></p>
+						<p><span class="item_price">Rp 3000 - Rp 20000</span></p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+						<a class="item_add hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Buah']) }}">Shop Now </a>
 					</div>
 				</div>
 			</div>
@@ -142,17 +159,17 @@
 			<div class="img-box"><img src="{{asset('frontEnd/images/p4.jpg')}}" alt="image" class="img-responsive zoom-img"></div>
 			<div class="info-box">
 				<div class="info-content simpleCart_shelfItem">
-					<h4>Shoes</h4>
+					<h4>Ready to Consume</h4>
 					<span class="separator"></span>
-					<p><span class="item_price">$150</span></p>
+					<p><span class="item_price">Rp 2000 - Rp 50000</span></p>
 					<span class="separator"></span>
-					<a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+					<a class="item_add hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Siap Konsumsi']) }}">Shop Now </a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="clearfix"></div>
-</div> -->
+</div>
 <!-- //content-bottom -->
 
 <!-- product-nav -->
@@ -179,32 +196,36 @@
 					<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Terlaris</span></li>
 				</ul>
 				<div class="resp-tabs-container">
+					
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-						<div class="col-md-3 product-men">
+						@foreach($products as $product)
+						<div class="col-md-3 product-men yes-marg">
 							<div class="men-pro-item simpleCart_shelfItem">
 								<div class="men-thumb-item">
-									<img src="{{asset('frontEnd/images/a1.png')}}" alt="" class="pro-image-front">
-									<img src="{{asset('frontEnd/images/a1.png')}}" alt="" class="pro-image-back">
+									<img src="/image/{{ $product->gambar }}" alt="" class="pro-image-front">
+									<img src="/image/{{ $product->gambar }}" alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="single.html" class="link-product-add-cart">Quick View</a>
+											<a href="{{ route('product.detail', ['id' => $product->id]) }}" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
-									<span class="product-new-top">New</span>
+									<span class="product-new-top">{{ $product->kategori }}</span>
 									
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="single.html">Air Tshirt Black</a></h4>
+									<h4><a href="single.html">{{ $product->nama }}</a></h4>
 									<div class="info-product-price">
-										<span class="item_price">$45.99</span>
-										<del>$69.71</del>
+										<span class="item_price">Rp {{ $product->harga_diskon }}</span>
+										<del>Rp {{ $product->harga }}</del>
 									</div>
-									<a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+									<a href="{{ route('product.addToCart', ['id' => $product->id]) }}" class="item_add single-item hvr-outline-out button2">Add to cart</a>
 								</div>
 							</div>
 						</div>
+						@endforeach
 						<div class="clearfix"></div>
 					</div>
+					
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 						<div class="col-md-3 product-men">
 							<div class="men-pro-item simpleCart_shelfItem">

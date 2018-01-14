@@ -1,5 +1,5 @@
 @extends('frontEnd.master')
-@section('page-title', 'Contact')
+@section('page-title', 'Profile')
 @section('content')
 <!-- banner -->
 <div class="page-head">
