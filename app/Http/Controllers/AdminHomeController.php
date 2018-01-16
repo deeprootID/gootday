@@ -4,11 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Charts;
+use App\Order;
 
 class AdminHomeController extends Controller
 {
 	public function getMaster(){
-		return view('backEnd.dashboard.index');
+        $chart = Charts::database(Order::all(), 'line', 'highcharts')
+            ->elementLabel("Total")
+            ->dimensions(1000, 500)
+            ->responsive(false)
+            ->groupByDay();
+        
+        //return view('chart', ['chart' => $chart]);
+		return view('backEnd.dashboard.index', ['chart' => $chart]);
 	}
 	
 	public function getSignIn(){
@@ -36,4 +45,3 @@ class AdminHomeController extends Controller
         return redirect()->route('frontEnd.home');
     }
 }
-		

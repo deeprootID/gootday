@@ -1,7 +1,4 @@
-@extends('backEnd.master')
-@section('page-title', 'Dashboard')
-@section('page-heading', 'Dashboard Area')
-@section('content')
+@extends('backEnd.master') @section('page-title', 'Dashboard') @section('page-heading', 'Dashboard Area') @section('content')
 <!-- /.row -->
 <div class="row">
     <div class="col-lg-3 col-md-6">
@@ -95,11 +92,12 @@
 </div>
 <!-- /.row -->
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Data Penjualan Barang
                 <div class="pull-right">
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             Actions
@@ -117,16 +115,29 @@
                             </li>
                         </ul>
                     </div>
+
+
                 </div>
             </div>
             <!-- /.panel-heading -->
+
             <div class="panel-body">
-                <div id="morris-area-chart"></div>
+                <!--                <div id="morris-area-chart"></div>-->
+                <!-- Main Application (Can be VueJS or other JS framework) -->
+                <div class="app">
+                    <center>
+                        {!! $chart->html() !!}
+                    </center>
+                </div>
+                <!-- End Of Main Application -->
+                {!! Charts::scripts() !!} {!! $chart->script() !!}
             </div>
+
             <!-- /.panel-body -->
         </div>
         <!-- /.panel -->
-        {{--  <div class="panel panel-default">
+        {{--
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                 <div class="pull-right">
@@ -226,9 +237,10 @@
                 <!-- /.row -->
             </div>
             <!-- /.panel-body -->
-        </div>  --}}
+        </div> --}}
         <!-- /.panel -->
-        {{--  <div class="panel panel-default">
+        {{--
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
             </div>
@@ -338,11 +350,12 @@
                 </ul>
             </div>
             <!-- /.panel-body -->
-        </div>  --}}
+        </div> --}}
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-8 -->
-    {{--  <div class="col-lg-4">
+    {{--
+    <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bell fa-fw"></i> Notifications Panel
@@ -530,7 +543,7 @@
             <!-- /.panel-footer -->
         </div>
         <!-- /.panel .chat-panel -->
-    </div>  --}}
+    </div> --}}
     <!-- /.col-lg-4 -->
 </div>
 <!-- /.row -->
