@@ -36,8 +36,11 @@ Route::get('/shop', 'FrontEndProductController@getMaster')->name('frontEnd.produ
 // User profile
 Route::get('/user/profile', 'UserController@getProfile')->name('user.profile')->middleware('auth');
 
-// Print PDF
-Route::get('/user/order/print/{id}', 'UserController@getPrintToPdf')->name('user.printToPdf')->middleware('auth');
+// Order Detail
+Route::get('/user/order/print/{id}', 'UserController@getDetailOrder')->name('user.detailorder')->middleware('auth');
+
+// Print to PDF
+Route::get('/user/order/print/topdf/{id}', 'UserController@getPrintToPdf')->name('user.printtopdf')->middleware('auth');
 
 // Shopping Cart
 Route::get('/shopping-cart', 'FrontEndProductController@getCart')->name('frontEnd.shoppingCart');

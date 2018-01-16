@@ -6,6 +6,7 @@ use Session;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use PDF;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
         return view('frontEnd.user.index', ['orders' => $orders]);
     }
 
-    public function getPrintToPdf($id) {
+    public function getDetailOrder($id) {
         $orders = Auth::user()->orders;
         $orders->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
@@ -26,6 +27,19 @@ class UserController extends Controller
         });
         $order = Auth::user()->orders->find($id);
         return view('frontEnd.topdf', ['order' => $order]);
+    }
+
+    public function getPrintToPdf($id){
+        $orders = Auth::user()->orders;
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        $order = Auth::user()->orders->find($id);
+        // view('frontEnd.topdf', ['order' => $order]);
+
+        $pdf = PDF::loadView('frontEnd.topdf', ['order' => $order]);
+        return $pdf->download('invoice.pdf');
     }
 
     public function postSignup(Request $request) {
