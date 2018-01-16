@@ -39,7 +39,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <li>
+            {{--  <li>
                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
             </li>
             <li>
@@ -110,7 +110,7 @@
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
-            </li>
+            </li>  --}}
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

@@ -98,7 +98,7 @@
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                <i class="fa fa-bar-chart-o fa-fw"></i> Data Penjualan Barang
                 <div class="pull-right">
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -126,7 +126,7 @@
             <!-- /.panel-body -->
         </div>
         <!-- /.panel -->
-        <div class="panel panel-default">
+        {{--  <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                 <div class="pull-right">
@@ -226,9 +226,9 @@
                 <!-- /.row -->
             </div>
             <!-- /.panel-body -->
-        </div>
+        </div>  --}}
         <!-- /.panel -->
-        <div class="panel panel-default">
+        {{--  <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
             </div>
@@ -338,11 +338,11 @@
                 </ul>
             </div>
             <!-- /.panel-body -->
-        </div>
+        </div>  --}}
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-8 -->
-    <div class="col-lg-4">
+    {{--  <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bell fa-fw"></i> Notifications Panel
@@ -530,7 +530,7 @@
             <!-- /.panel-footer -->
         </div>
         <!-- /.panel .chat-panel -->
-    </div>
+    </div>  --}}
     <!-- /.col-lg-4 -->
 </div>
 <!-- /.row -->

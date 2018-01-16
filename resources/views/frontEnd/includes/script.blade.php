@@ -10,3 +10,12 @@
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="{{asset('frontEnd/js/jquery.easing.min.js')}}"></script>
+<script src="{{asset('frontEnd/js/jquery.flexslider.js')}}"></script>
+<script src="{{asset('frontEnd/js/imagezoom.js')}}"></script>
+@if(!empty(Session::get('error_code')) && Session::get('error_code') == 5)
+	<script>
+		$(function() {
+			$('#myModal4').modal('show');
+		});
+	</script>
+@endif

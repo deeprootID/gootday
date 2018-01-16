@@ -29,7 +29,7 @@
                         <td class="invert-closeb">
                             <a href="{{ route('shoppingCart.product.removeAll', ['id' => $product['item']['id']]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                         </td>
-                        <td class="invert-image"><a href="single.html"><img src="image/{{ $product['item']['gambar'] }}" alt=" " class="img-responsive" /></a></td>
+                        <td class="invert-image"><a href="{{ route('product.detail', ['id' => $product['item']['id']]) }}"><img src="image/{{ $product['item']['gambar'] }}" alt=" " class="img-responsive" /></a></td>
                         <td class="invert">
                             <div class="quantity"> 
                                 <div class="quantity-select">                           

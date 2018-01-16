@@ -18,6 +18,16 @@ class UserController extends Controller
         return view('frontEnd.user.index', ['orders' => $orders]);
     }
 
+    public function getPrintToPdf($id) {
+        $orders = Auth::user()->orders;
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        $order = Auth::user()->orders->find($id);
+        return view('frontEnd.topdf', ['order' => $order]);
+    }
+
     public function postSignup(Request $request) {
         $this->validate($request, [
             'name' => 'required',
