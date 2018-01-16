@@ -72,7 +72,9 @@ class Handler extends ExceptionHandler
             return response()->json(['message' => $exception->getMessage()], 401);
         } else {
             Session::put('oldUrl', $request->url());
-            return redirect()->guest(route('frontEnd.home'));
+            // return redirect()->guest(route('frontEnd.home'));
+            // return redirect()->guest(back()->with('error_code', 5));
+            return redirect()->back()->with('error_code', 5);
         }
     }
 }

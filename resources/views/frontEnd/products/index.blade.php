@@ -20,7 +20,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-12">
-				<div id="charge-message" class="alert alert-success" style="margin-top: 20px; margin-bottom: -20px;">
+				<div id="charge-message" class="alert alert-success dismissable" style="margin-top: 20px; margin-bottom: -20px;">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
 					<center>
 						{{ Session::get('message') }}
 					</center>
@@ -140,17 +141,8 @@
 			</div>
 		</div>
 
-		<div class="pagination-grid text-right">
-			<ul class="pagination paging">
-				<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-				<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-			</ul>
-		</div>
+		{{--  Pagination  --}}
+		{{ $products->links() }}
 	</div>
 </div>
 <!-- //mens -->

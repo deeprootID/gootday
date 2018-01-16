@@ -9,7 +9,7 @@
 </div>
 <div class="container">
 	<div class="row" style="margin: 30px;">
-		<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-4">
+		<div class="col-sm-6 col-md-12">
 			<h1>Checkout</h1>
 			<div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }} ">
 				{{ Session::get('error') }}
@@ -45,42 +45,59 @@
 							</div>
 						</div>
 					<div class="col-xs-12">
-						<div class="form-group">
-							<label for="provinsi">Pilih provinsi :</label>
-							<select class="form-control" id="provinsi">
-							</select>
-						</div>
-					</div>
-					<div class="col-xs-12">
-						<div class="form-group">
-							<label for="kota">Pilih kota :</label>
-							<select class="form-control" id="kota">
-							</select>
-						</div>
-					</div>
-					<div class="col-xs-12">
-							<div class="form-group">
-								<label for="kurir">Pilih kurir :</label>
-								<select name="kurir" class="form-control" id="kurir">
-									<option selected disabled>Pilih kurir</option>
-									<option value="jne">JNE</option>
-									<option value="pos">POS</option>
-									<option value="tiki">TIKI</option>
-								</select>
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="provinsi">Choose province :</label>
+									<select class="form-control" id="provinsi">
+									</select>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="kota">Choose city :</label>
+									<select class="form-control" id="kota">
+									</select>
+								</div>
 							</div>
 						</div>
+					</div>
+					<div class="col-xs-12">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="kurir">Choose courier service :</label>
+									<select name="kurir" class="form-control" id="kurir">
+										<option selected disabled>Choose courier</option>
+										<option value="jne">JNE</option>
+										<option value="pos">POS</option>
+										<option value="tiki">TIKI</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="total-weight">Your Total Weight</label>
+									<div class="input-group">
+										<input value="{{ $weight }}" type="text" id="total-weight" class="form-control" readonly>
+										<span class="input-group-addon">grams</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="col-xs-12">
 							<div class="row">
-								<div class="col-xs-6">
+								<div class="col-xs-4">
 									<div class="form-group">
-										<label for="card-expiry-month">Your Total</label>
+										<label for="card-expiry-month">Your Cart Total</label>
 										<div class="input-group">
 											<span class="input-group-addon">Rp</span>
-											<input value="{{ $total }}" type="text" id="card-expiry-month" class="form-control" readonly>
+											<input value="{{ $total }}" type="text" id="cart-total" class="form-control" readonly>
 										</div>
 									</div>
 								</div>
-								<div class="col-xs-6">
+								<div class="col-xs-4">
 									<div class="form-group">
 										<label for="shipping-cost">Shipping Cost</label>
 										<div class="input-group">
@@ -89,6 +106,15 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-xs-4">
+										<div class="form-group">
+											<label for="card-expiry-month">Your Total Cost</label>
+											<div class="input-group">
+												<span class="input-group-addon">Rp</span>
+												<input value="" type="text" id="total-cost" class="form-control" readonly>
+											</div>
+										</div>
+									</div>
 							</div>
 						</div>
 				</div>
@@ -152,6 +178,8 @@
 					dataType: 'json',
 					success: function(data){
 						$('#shipping-cost').val(data.rajaongkir.results[0].costs[0].cost[0].value);
+						var total = parseInt($('#shipping-cost').val())+parseInt($('#cart-total').val());
+						$('#total-cost').val(total);
 					}
 				});
 			});

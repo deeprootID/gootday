@@ -28,6 +28,7 @@
 				</div>
 				<div class="panel-footer">
 					<strong>Total price : Rp {{ $order->cart->totalPrice }}</strong>
+					<a href="{{ route('user.printToPdf', ['id' => $order->id]) }}" class="btn btn-success"><span class="glyphicon glyphicon-print"></span> Print</a>
 				</div>
 			</div>
 		@endforeach

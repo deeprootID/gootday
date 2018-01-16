@@ -12,3 +12,10 @@
 <script src="{{asset('frontEnd/js/jquery.easing.min.js')}}"></script>
 <script src="{{asset('frontEnd/js/jquery.flexslider.js')}}"></script>
 <script src="{{asset('frontEnd/js/imagezoom.js')}}"></script>
+@if(!empty(Session::get('error_code')) && Session::get('error_code') == 5)
+	<script>
+		$(function() {
+			$('#myModal4').modal('show');
+		});
+	</script>
+@endif

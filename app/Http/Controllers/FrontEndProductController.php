@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
@@ -15,15 +16,18 @@ use Session;
 class FrontEndProductController extends Controller
 {
     public function getMaster(){
-        $products = Product::all();
+        // $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->paginate(4);
         $categoriesShort = Category::whereRaw('char_length(category_name) < 12')->get();
         $categoriesLong = Category::whereRaw('char_length(category_name) > 12')->get();
         return view('frontEnd.products.index')->with('products', $products)->with('categoriesShort', $categoriesShort)->with('categoriesLong', $categoriesLong);
     }
 
     public function index(){
-        $products = Product::all();
-        return view('frontEnd.home.index')->with('products', $products);
+        $productsPromo = Product::where('sale_status', 'Promo')->get();
+        $productsTerbaru = Product::where('sale_status', 'Terbaru')->get();
+        $productsTerlaris = Product::where('sale_status', 'Terlaris')->get();
+        return view('frontEnd.home.index')->with('productsPromo', $productsPromo)->with('productsTerbaru', $productsTerbaru)->with('productsTerlaris', $productsTerlaris);
     }    
 
     public function getAddtoCart(Request $request, $id) {
@@ -181,7 +185,8 @@ class FrontEndProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
-        return view('frontEnd.checkout.index', ['total' => $total]);
+        $totalWeight = $cart->totalWeight;
+        return view('frontEnd.checkout.index', ['total' => $total, 'weight' => $totalWeight]);
     }
 
     public function postCheckout(Request $request){

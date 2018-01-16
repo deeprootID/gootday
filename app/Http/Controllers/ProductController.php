@@ -43,6 +43,7 @@ class ProductController extends Controller
         $product->stok = $request->product_stock;
         $product->kategori = $request->product_category;
         $product->berat = $request->product_weight;
+        $product->sale_status = $request->product_sale_status;
         $product->deskripsi = $request->product_description;
 
         $file = $request->file('product_image');
@@ -77,7 +78,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('backEnd.product.editProduct')->with('product', $product);
+        $categories = Category::all();
+        return view('backEnd.product.editProduct')->with('product', $product)->with('categories', $categories);
     }
 
     /**
@@ -94,6 +96,7 @@ class ProductController extends Controller
         $product->stok = $request->input('product_stock');
         $product->kategori = $request->input('product_category');
         $product->berat = $request->input('product_weight');
+        $product->sale_status = $request->input('product_sale_status');
         $product->deskripsi = $request->input('product_description');
         $product->gambar = $request->input('product_image');
         $product->harga = $request->input('product_price');

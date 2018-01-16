@@ -6,7 +6,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-12">
-				<div id="charge-message" class="alert alert-success" style="margin-top: 20px; margin-bottom: -20px;">
+				<div id="charge-message" class="alert alert-success alert-dismissable" style="margin-top: 20px; margin-bottom: -20px;">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
 					<center>
 						{{ Session::get('message') }}
 					</center>

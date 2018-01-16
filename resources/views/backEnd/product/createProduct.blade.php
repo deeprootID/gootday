@@ -32,6 +32,15 @@
             </div>
         </div>
         <div class="form-group">
+            <label>Sale Status</label>
+            <select class="form-control" name="product_sale_status">
+                <option>Pilih Satus Penjualan</option>
+                <option value="Promo">Promo</option>
+                <option value="Terbaru">Terbaru</option>
+                <option value="Terlaris">Terlaris</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label>Deskripsi</label>
             <textarea class="form-control" name="product_description" cols="30" rows="10" placeholder="Masukkan Deskripsi Produk"></textarea>
         </div>
@@ -63,3 +72,5 @@
 </section>
 
 @endsection
+
+
