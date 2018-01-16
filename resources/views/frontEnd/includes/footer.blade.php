@@ -6,21 +6,20 @@
 			</div>
 			<div class="col-md-3 coupons-gd">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-				<h4>LOGIN TO YOUR ACCOUNT</h4>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-			sit amet, consectetur.</p>
+				<h4>YOU CHOOSE</h4>
+				<p>Simply click-to-harvest on the produce you want and submit your order when you're done.</p>
 			</div>
 			<div class="col-md-3 coupons-gd">
 				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				<h4>SELECT YOUR ITEM</h4>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-			sit amet, consectetur.</p>
+				<h4>FARMERS HARVEST</h4>
+				<p>SayurBox farmers receive your orders two days in advance so they can prepare for harvest exactly as your orders – no wasted produce.
+				</p>
 			</div>
 			<div class="col-md-3 coupons-gd">
 				<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-				<h4>MAKE PAYMENT</h4>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-			sit amet, consectetur.</p>
+				<h4>WE PACK AND DELIVER</h4>
+				<p>Our team ensures the produce quality is up to our standard and delivers to your door within 24 hours of harvest day.
+				</p>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -30,11 +29,8 @@
 <div class="footer">
 	<div class="container">
 		<div class="col-md-3 footer-left">
-			<h2><a href="index.html"><img src="{{asset('frontEnd/images/logo3.jpg')}}" alt=" " /></a></h2>
-			<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-			sit amet, consectetur, adipisci velit, sed quia non
-			numquam eius modi tempora incidunt ut labore
-			et dolore magnam aliquam quaerat voluptatem.</p>
+			<h2><a href="index.html"><img src="{{asset('frontEnd/images/freshop.png')}}" alt=" " /></a></h2>
+			<p>Freshop provides a platform for customers to order produce straight from the farmers. We source and deliver the produce within 24 hours from partner farmers straight to the convenience of your doorstep.</p>
 		</div>
 		<div class="col-md-9 footer-right">
 			<div class="col-sm-6 newsleft">
@@ -86,6 +82,6 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<p class="copy-right">&copy 2017 gOOTDay - DateebDev. All rights reserved | Created by <span class="glyphicon glyphicon-heart"></span> by <a href="http://gootday.dateebdev.id">gOOTDay Team - DateebDev</a></p>
+		<p class="copy-right">&copy 2018 Freshop - DateebDev. All rights reserved | Created by <span class="glyphicon glyphicon-heart"></span> by <a href="http://freshopteam.dateebdev.id">Freshop Team - DateebDev</a></p>
 	</div>
 </div>

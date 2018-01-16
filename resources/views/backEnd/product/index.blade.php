@@ -1,5 +1,13 @@
 @extends('backEnd.master')
 @section('page-title', 'Products')
+@section('stylesheet')
+<style>
+    img {
+        width: 40px;
+        heigth: 40px;
+    }
+</style>
+@endsection
 @section('page-heading', 'Manage Products')
 @section('content')
 <section class="content">
@@ -12,6 +20,7 @@
                     <th>Category</th>
                     <th>Weight</th>
                     <th>Stock</th>
+                    <th>Status</th>
                     <th>Description</th>
                     <th>Image</th>
                     <th>Price</th>
@@ -26,8 +35,10 @@
                     <td>{{$product->kategori}}</td>
                     <td>{{$product->berat}}</td>
                     <td>{{$product->stok}}</td>
+                    <td>{{$product->sale_status}}</td>
                     <td>{{$product->deskripsi}}</td>
-                    <td>{{$product->gambar}}</td>
+                    {{--  <td>{{$product->gambar}}</td>  --}}
+                    <td><img src="/image/{{$product->gambar}}" ></td>
                     <td>{{$product->harga}}</td>
                     <td>{{$product->harga_diskon}}</td>
                     <td>

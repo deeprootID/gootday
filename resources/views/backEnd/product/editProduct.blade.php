@@ -17,7 +17,12 @@
         </div>
         <div class="form-group">
             <label>Kategori</label>
-            <input value="{{$product->kategori}}" class="form-control" type="text" name="product_category" placeholder="Masukkan Kategori">
+            <select class="form-control" name="product_category" id="product_category">
+                <option>Pilih Kategori Barang</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label>Berat</label>
@@ -25,6 +30,15 @@
                     <input value="{{$product->berat}}" class="form-control" type="text" name="product_weight" placeholder="Masukkan Berat Barang">
                     <span class="input-group-addon" id="basic-addon2">grams</span>
             </div>
+        </div>
+        <div class="form-group">
+            <label>Sale Status</label>
+            <select class="form-control" name="product_sale_status" id="product_sale_status">
+                <option>Pilih Satus Penjualan</option>
+                <option value="Promo">Promo</option>
+                <option value="Terbaru">Terbaru</option>
+                <option value="Terlaris">Terlaris</option>
+            </select>
         </div>
         <div class="form-group">
             <label>Deskripsi</label>
@@ -57,4 +71,14 @@
     </div>
 </section>
 
+@endsection
+
+@section('script')
+<script>
+    var optionValue  = {{ $product->kategori }};
+    $("#product_category").val(optionValue).find("option[value=" + optionValue +"]").attr('selected', true);
+
+    var optionValuePStatus  = {{ $product->sale_status }};
+    $("#product_sale_status").val(optionValuePStatus).find("option[value=" + optionValuePStatus +"]").attr('selected', true);
+</script>
 @endsection

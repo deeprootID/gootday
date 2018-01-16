@@ -232,7 +232,7 @@ label{
     padding: 0px 0;
 }
 .dropdown-menu.columns-3 {
-    min-width: 700px;
+    width: 700px;
     padding: 30px 30px;
 }
 .multi-gd-img img{
@@ -1684,7 +1684,7 @@ padding-top:110px;
 /*-- //coupons --*/
 /*-- contact --*/
 .page-head {
-    background: url(../images/ba2.jpg) no-repeat center;
+    background: url(../images/terserah.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -1694,7 +1694,8 @@ padding-top:110px;
     padding-top: 85px;
 }
 .page-head h3 {
-    color: #4caf50;
+	font-weight: bold;
+    color: #fff;
     text-align: center;
     text-transform: uppercase;
     font-size: 48px;
@@ -2067,7 +2068,7 @@ width:48%;
 /*-- //electronics --*/
 /*-- men-wear --*/
 .men-wear{
-	padding:90px 0;
+	padding:50px 0;
 }
 /*-- Slider range --*/
 ul.dropdown-menu6 ,ul.dropdown-menu5{

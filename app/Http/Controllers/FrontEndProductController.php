@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
+use App\Category;
 use Stripe\Stripe;
 use Stripe\Charge;
 use App\Order;
@@ -14,9 +16,19 @@ use Session;
 class FrontEndProductController extends Controller
 {
     public function getMaster(){
-        $products = Product::all();
-        return view('frontEnd.products.index')->with('products', $products);
+        // $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->paginate(4);
+        $categoriesShort = Category::whereRaw('char_length(category_name) < 12')->get();
+        $categoriesLong = Category::whereRaw('char_length(category_name) > 12')->get();
+        return view('frontEnd.products.index')->with('products', $products)->with('categoriesShort', $categoriesShort)->with('categoriesLong', $categoriesLong);
     }
+
+    public function index(){
+        $productsPromo = Product::where('sale_status', 'Promo')->get();
+        $productsTerbaru = Product::where('sale_status', 'Terbaru')->get();
+        $productsTerlaris = Product::where('sale_status', 'Terlaris')->get();
+        return view('frontEnd.home.index')->with('productsPromo', $productsPromo)->with('productsTerbaru', $productsTerbaru)->with('productsTerlaris', $productsTerlaris);
+    }    
 
     public function getAddtoCart(Request $request, $id) {
         $product = Product::find($id);
@@ -25,7 +37,8 @@ class FrontEndProductController extends Controller
         $cart->add($product, $product->id);
 
         $request->session()->put('cart', $cart);
-        return redirect()->route('frontEnd.product');
+        $request->session()->flash('message', 'Product has been added to the cart !');
+        return redirect()->back();//->with('message', 'Product has been added to the cart !');
     }
 
     public function getAdd($id) {
@@ -50,6 +63,96 @@ class FrontEndProductController extends Controller
         }
         
         return redirect()->route('frontEnd.shoppingCart');
+    }
+
+    public function getProvinces()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+            "key: a0efbd5b835e1794a04a1ace4cade474"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+        return "cURL Error #:" . $err;
+        } else {
+        return $response;
+        }
+    }
+
+    public function getCity($id)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/starter/city?province=".$id,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+            "key: a0efbd5b835e1794a04a1ace4cade474"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+        return "cURL Error #:" . $err;
+        } else {
+        return $response;
+        }
+    }
+
+    public function getCost($kota, $kurir)
+    {
+        $bobot = 5000;
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "origin=444&destination=".$kota."&weight=".$bobot."&courier=".$kurir,
+        CURLOPT_HTTPHEADER => array(
+            "content-type: application/x-www-form-urlencoded",
+            "key: a0efbd5b835e1794a04a1ace4cade474"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+        return "cURL Error #:" . $err;
+        } else {
+        return $response;
+        }
     }
 
     public function getRemoveAll($id) {
@@ -82,7 +185,8 @@ class FrontEndProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
-        return view('frontEnd.checkout.index', ['total' => $total]);
+        $totalWeight = $cart->totalWeight;
+        return view('frontEnd.checkout.index', ['total' => $total, 'weight' => $totalWeight]);
     }
 
     public function postCheckout(Request $request){
@@ -102,19 +206,26 @@ class FrontEndProductController extends Controller
         Auth::user()->orders()->save($order);
 
         Session::forget('cart');
-        return redirect()->route('frontEnd.product')->with('success', 'Produk sukses dibeli. Terimakasih atas pembelian Anda !');
+        return redirect()->route('frontEnd.product')->with('success', 'Complete the payment, wait for us to confirm your payment! It only needs couple of hours. Thank you ! ');
     }
 
     public function getSearch(Request $request){
         $search = $request->input('search');
         $kategori = $request->input('kategori');
         $products = Product::where('nama', 'like', '%'.$search.'%')
-            ->orWhere('stok', 'like', '%'.$search.'%')
-            ->orWhere('berat', 'like', '%'.$search.'%')
-            ->orWhere('deskripsi', 'like', '%'.$search.'%')
-            ->orWhere('harga_diskon', 'like', '%'.$search.'%')
             ->orWhere('kategori', $kategori)
             ->get();
-        return view('frontEnd.home.search')->with('products', $products);
+        return view('frontEnd.home.search')->with('products', $products)->with('search', $search);
+        // dd($search, $kategori);
+    }
+
+    public function getProductDetail($id){
+        $product = Product::find($id);
+        return view('frontEnd.products.detail')->with('product', $product);
+    }
+
+    public function getByCategory($kategori){
+        $products = Product::where('kategori', $kategori)->get();
+        return view('frontEnd.home.category')->with('products', $products)->with('kategori', $kategori);
     }
 }

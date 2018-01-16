@@ -16,10 +16,16 @@
 // });
 
 // FrontEnd
-Route::get('/', 'FrontEndHomeController@getMaster')->name('frontEnd.home');
+Route::get('/', 'FrontEndProductController@index')->name('frontEnd.home');
 
 // Search
 Route::post('/search', 'FrontEndProductController@getSearch')->name('product.search');
+
+// Show by Category
+Route::get('/category/{kategori}', 'FrontEndProductController@getByCategory')->name('product.getByCategory');
+
+// Product Detail
+Route::get('/detail/{id}', 'FrontEndProductController@getProductDetail')->name('product.detail');
 
 // Contacts
 Route::get('/contact', 'FrontEndContactController@getMaster')->name('frontEnd.contact')->middleware('guest');
@@ -29,6 +35,9 @@ Route::get('/shop', 'FrontEndProductController@getMaster')->name('frontEnd.produ
 
 // User profile
 Route::get('/user/profile', 'UserController@getProfile')->name('user.profile')->middleware('auth');
+
+// Print PDF
+Route::get('/user/order/print/{id}', 'UserController@getPrintToPdf')->name('user.printToPdf')->middleware('auth');
 
 // Shopping Cart
 Route::get('/shopping-cart', 'FrontEndProductController@getCart')->name('frontEnd.shoppingCart');
@@ -44,30 +53,39 @@ Route::get('/shopping-cart/remove-all/{id}', 'FrontEndProductController@getRemov
 
 // Checkout
 Route::get('/checkout', 'FrontEndProductController@getCheckout')->name('frontEnd.checkout')->middleware('auth');
+Route::get('/checkout/provinces', 'FrontEndProductController@getProvinces')->name('frontEnd.checkout.provinces')->middleware('auth');
+Route::get('/checkout/city/{id}', 'FrontEndProductController@getCity')->name('frontEnd.checkout.city')->middleware('auth');
+Route::get('/checkout/cost/{kota}/{kurir}', 'FrontEndProductController@getCost')->name('frontEnd.checkout.cost')->middleware('auth');
 
 //  <--------------------- ###### ------------------->
 
 // BackEnd
-Route::get('/admin', 'AdminHomeController@getMaster')->name('admin.home')->middleware('guest');
+Route::get('/admin', 'AdminHomeController@getMaster')->name('admin.home')->middleware('admin');
 
 // Login - Admin
-Route::get('/admin/login', 'AdminHomeController@getLogin')->name('admin.login');
+Route::get('/admin/signin', 'AdminHomeController@getSignIn')->name('admin.getSignIn');
+
+// Login - Admin Post
+Route::post('/admin/signin', 'AdminHomeController@postSignIn')->name('admin.postSignIn');
+
+// Logout - Admin
+Route::get('/admin/logout', 'AdminHomeController@getLogout')->name('admin.logout');
 
 // Category - Admin
-Route::get('/admin/category/create', 'CategoryController@create')->name('category.create')->middleware('guest');
-Route::get('/admin/category', 'CategoryController@index')->name('category.index')->middleware('guest');
-Route::post('/admin/category/store', 'CategoryController@store')->name('category.store')->middleware('guest');
+Route::get('/admin/category/create', 'CategoryController@create')->name('category.create')->middleware('admin');
+Route::get('/admin/category', 'CategoryController@index')->name('category.index')->middleware('admin');
+Route::post('/admin/category/store', 'CategoryController@store')->name('category.store')->middleware('admin');
 Route::get('/admin/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
-Route::post('/admin/category/update/{id}', 'CategoryController@update')->name('category.update')->middleware('guest');
-Route::get('/admin/category/delete/{id}', 'CategoryController@destroy')->name('category.delete')->middleware('guest');
+Route::post('/admin/category/update/{id}', 'CategoryController@update')->name('category.update')->middleware('admin');
+Route::get('/admin/category/delete/{id}', 'CategoryController@destroy')->name('category.delete')->middleware('admin');
 
 // Products - Admin
-Route::get('/admin/product', 'ProductController@index')->name('product.index')->middleware('guest');
-Route::get('/admin/product/create', 'ProductController@create')->name('product.create')->middleware('guest');
-Route::post('/admin/product/store', 'ProductController@store')->name('product.store')->middleware('guest');
-Route::get('/admin/product/delete/{id}', 'ProductController@destroy')->name('product.delete')->middleware('guest');
-Route::get('/admin/product/edit/{id}', 'ProductController@edit')->name('product.edit')->middleware('guest');
-Route::post('/admin/product/update/{id}', 'ProductController@update')->name('product.update')->middleware('guest');
+Route::get('/admin/product', 'ProductController@index')->name('product.index')->middleware('admin');
+Route::get('/admin/product/create', 'ProductController@create')->name('product.create')->middleware('admin');
+Route::post('/admin/product/store', 'ProductController@store')->name('product.store')->middleware('admin');
+Route::get('/admin/product/delete/{id}', 'ProductController@destroy')->name('product.delete')->middleware('admin');
+Route::get('/admin/product/edit/{id}', 'ProductController@edit')->name('product.edit')->middleware('admin');
+Route::post('/admin/product/update/{id}', 'ProductController@update')->name('product.update')->middleware('admin');
 
 // User - Signup
 Route::post('/user/signup', 'UserController@postSignup')->name('user.signup')->middleware('guest');
