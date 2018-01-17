@@ -12,3 +12,5 @@
 
 <!-- //pignose css -->
 <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+
+<link rel="shortcut icon" href="{{ asset('frontEnd/images/logoGambar.png') }}">

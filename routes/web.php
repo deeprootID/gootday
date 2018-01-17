@@ -90,6 +90,15 @@ Route::get('/admin/product/delete/{id}', 'ProductController@destroy')->name('pro
 Route::get('/admin/product/edit/{id}', 'ProductController@edit')->name('product.edit')->middleware('admin');
 Route::post('/admin/product/update/{id}', 'ProductController@update')->name('product.update')->middleware('admin');
 
+// Admin - Order
+Route::get('/admin/orders', 'OrderController@index')->name('order.index')->middleware('admin');
+
+// Admin - Confirm Payment Order
+Route::get('admin/orders/confirm/{id}', 'OrderController@confirm')->name('order.confirm')->middleware('admin');
+
+// Admin - Unconfirm Payment Order
+Route::get('admin/orders/unconfirm/{id}', 'OrderController@unconfirm')->name('order.unconfirm')->middleware('admin');
+
 // User - Signup
 Route::post('/user/signup', 'UserController@postSignup')->name('user.signup')->middleware('guest');
 

@@ -26,7 +26,7 @@ class UserController extends Controller
             return $order;
         });
         $order = Auth::user()->orders->find($id);
-        return view('frontEnd.topdf', ['order' => $order]);
+        return view('frontEnd.orderdetail', ['order' => $order]);
     }
 
     public function getPrintToPdf($id){
@@ -36,10 +36,8 @@ class UserController extends Controller
             return $order;
         });
         $order = Auth::user()->orders->find($id);
-        // view('frontEnd.topdf', ['order' => $order]);
-
-        $pdf = PDF::loadView('frontEnd.topdf', ['order' => $order]);
-        return $pdf->download('invoice.pdf');
+        $pdf = PDF::loadView('frontEnd.pdf', compact('order'));
+        return $pdf->stream('invoice.pdf');
     }
 
     public function postSignup(Request $request) {
