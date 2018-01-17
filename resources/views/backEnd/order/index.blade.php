@@ -1,41 +1,34 @@
 @extends('backEnd.master')
-@section('page-title', 'Products')
-@section('page-heading', 'Manage Products')
+@section('page-title', 'Orders')
+@section('page-heading', 'Manage Orders')
 @section('content')
 <section class="content">
     <div class="col-xs-12">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Weight</th>
-                    <th>Stock</th>
-                    <th>Status</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th>Price</th>
-                    <th>Discount Price</th>
+                    <th>No</th>
+                    <?php $i = 0?>
+                    <th>Date</th>
+                    <th>User ID</th>
+                    <th>Address</th>
+                    <th>User Name</th>
+                    <th>Order ID</th>
+                    <th>Payment Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($products as $product)
+                @foreach($orders as $order)
                 <tr>
-                    <td>{{$product->id}}</td>
-                    <td>{{$product->nama}}</td>
-                    <td>{{$product->kategori}}</td>
-                    <td>{{$product->berat}}</td>
-                    <td>{{$product->stok}}</td>
-                    <td>{{$product->sale_status}}</td>
-                    <td>{{$product->deskripsi}}</td>
-                    <td>{{$product->gambar}}</td>
-                    <td>{{$product->harga}}</td>
-                    <td>{{$product->harga_diskon}}</td>
-                    <td>
-                        <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary">Edit</a>
-                        <a href="{{route('product.delete', $product->id)}}" class="btn btn-danger">Delete</a>
-                    </td>
+                    <td>{{ ++$i }}</td>
+                    <td>{{ $order->created_at }}</td>
+                    <td>{{ $order->user_id }}</td>
+                    <td>{{ $order->address }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->payment_id }}</td>
+                    <td><span class="{{ $order->payment_status == 'Confirmed' ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove' }}"></span>  {{ $order->payment_status }}</td>
+                    <td><a href="{{ $order->payment_status == 'Confirmed' ? route('order.unconfirm', ['id' => $order->id]) : route('order.confirm', ['id' => $order->id]) }}" class="{{ $order->payment_status == 'Confirmed' ? 'btn btn-danger' : 'btn btn-primary' }}">{{ $order->payment_status == 'Confirmed' ? 'Unconfirm' : 'Confirm' }}</a></td>
                 </tr>
                 @endforeach
             </tbody>

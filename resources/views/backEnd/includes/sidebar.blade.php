@@ -39,6 +39,15 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Orders<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('order.index') }}">Manage Orders</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
             {{--  <li>
                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
             </li>
