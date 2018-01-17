@@ -4,7 +4,31 @@
 <head>
     
     <title>Payment Information</title>
-    
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -14,13 +38,13 @@
             <h1>{{ Auth::user()->name }}'s Orders</h1>
             <hr>
             <h4>Date: {{ substr($order->created_at,0,10) }}</h4>
-            <table border="1">
-                <tr><td width="300px">Nama Produk</td><td width="150px">Harga Produk</td><td width="150px">Jumlah Pembelian</td></tr>
+            <table border="1" id="customers">
+                <tr><th width="300px" align="center">Nama Produk</th><th width="150px" align="center">Harga Produk</th><th width="150px" align="center">Jumlah Pembelian</th></tr>
                 @foreach($order->cart->items as $item)
                 <tr>
-                    <td> {{ $item['item']['nama'] }} </td>
-                    <td> Rp {{ $item['price'] }} </td>
-                    <td> {{ $item['qty'] }} Units </td>
+                    <td align="center"> {{ $item['item']['nama'] }} </td>
+                    <td align="center"> Rp {{ $item['price'] }} </td>
+                    <td align="center"> {{ $item['qty'] }} Units </td>
                 </tr>
                 @endforeach
             </table>

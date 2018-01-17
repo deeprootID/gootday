@@ -47,12 +47,12 @@
 				<div class="col-md-4 sign-gd">
 					<h4>Information</h4>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="mens.html">Men's Wear</a></li>
-						<li><a href="womens.html">Women's Wear</a></li>
-						<li><a href="electronics.html">Electronics</a></li>
-						<li><a href="codes.html">Short Codes</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="{{route('frontEnd.home')}}">Home</a></li>
+						<li><a href="{{ route('product.getByCategory', ['kategori' => 'Buah']) }}">Buah</a></li>
+						<li><a href="{{ route('product.getByCategory', ['kategori' => 'Rempah']) }}">Rempah</a></li>
+						<li><a href="{{ route('product.getByCategory', ['kategori' => 'Lauk Pauk']) }}">Lauk Pauk</a></li>
+						<li><a href="{{ route('product.getByCategory', ['kategori' => 'Beras']) }}">Beras</a></li>
+						<li><a href="{{ route('product.getByCategory', ['kategori' => 'Sayur Mayur']) }}">Sayur Mayur</a></li>
 					</ul>
 				</div>
 

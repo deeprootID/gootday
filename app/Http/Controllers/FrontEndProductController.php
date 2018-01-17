@@ -211,12 +211,19 @@ class FrontEndProductController extends Controller
 
     public function getSearch(Request $request){
         $search = $request->input('search');
-        $kategori = $request->input('kategori');
-        $products = Product::where('nama', 'like', '%'.$search.'%')
-            ->orWhere('kategori', $kategori)
-            ->get();
+        // $kategori = $request->input('kategori');
+        // $products = Product::where('nama', 'like', '%'.$search.'%')
+        //     ->orWhere('kategori', $kategori)
+        //     ->get();
+        
+        if($request->input('kategori')=="") {
+            $products = Product::where('nama', 'LIKE', '%'.$search.'%')->get();
+        } else {
+            $kategori = $request->input('kategori');
+            $products = Product::where('kategori', $kategori)->where('nama', 'LIKE', '%'.$search.'%')->get();
+        }
+
         return view('frontEnd.home.search')->with('products', $products)->with('search', $search);
-        // dd($search, $kategori);
     }
 
     public function getProductDetail($id){

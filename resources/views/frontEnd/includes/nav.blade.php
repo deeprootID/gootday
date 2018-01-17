@@ -22,7 +22,7 @@
 				</div>
 				<div class="section_room">
 					<select id="kategori" name="kategori" onchange="change_country(this.value)" class="frm-field required">
-						<option>All categories</option>
+						<option value="">All categories</option>
 						<option value="Buah">Buah</option>
 						<option value="Sayur Mayur">Sayur Mayur</option>
 						<option value="Rempah">Rempah</option>
@@ -101,10 +101,10 @@
 								</div>
 							</ul>
 					</li>
-					<li class=" menu__item"><a class="menu__link" href="electronics.html">News And Promo</a></li>
-					<li class=" menu__item"><a class="menu__link" href="codes.html">How It Works</a></li>
-					<li class=" menu__item"><a class="menu__link" href="codes.html">FAQ</a></li>
-					<li class=" menu__item"><a class="menu__link" href="codes.html">How To Pay</a></li>
+					<li class=" menu__item"><a class="menu__link" href="{{route('frontEnd.home')}}">News And Promo</a></li>
+					<li class=" menu__item"><a class="menu__link" href="{{route('frontEnd.home')}}">How It Works</a></li>
+					<li class=" menu__item"><a class="menu__link" href="{{route('frontEnd.home')}}">FAQ</a></li>
+					<li class=" menu__item"><a class="menu__link" href="{{route('frontEnd.home')}}">How To Pay</a></li>
 					<li class=" menu__item"><a class="menu__link" href="{{route('frontEnd.contact')}}">contact</a></li>
 				  </ul>
 				</div>

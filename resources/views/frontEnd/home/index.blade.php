@@ -72,10 +72,10 @@
 		<div class="new_grids">
 			<div class="col-md-4 new-gd-left">
 				<img src="{{asset('frontEnd/images/rempah.jpg')}}" alt=" " />
-				<div style="color: #fff;" class="wed-brand simpleCart_shelfItem">
-					<h4>Fragrant "Rempah"</h4>
-					<h5>Original from Maluku</h5>
-					<p><span class="item_price">Rp 30000 - Rp 750000</span><a class="item_add hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Rempah']) }}">Shop Now </a></p>
+				<div style="color: #4caf50;" class="wed-brand simpleCart_shelfItem">
+					<h4 style="color: #fff;">Fragrant "Rempah"</h4>
+					<h5 style="color: #fff;">Original from Maluku</h5>
+					<p style="color: #fff;"><span class="item_price">Rp 30000 - Rp 750000</span><a class="item_add hvr-outline-out button2" href="{{ route('product.getByCategory', ['kategori' => 'Rempah']) }}">Shop Now </a></p>
 				</div>
 			</div>
 			<div class="col-md-4 new-gd-middle">
@@ -104,8 +104,8 @@
 			<div class="col-md-4 new-gd-left">
 				<img src="{{asset('frontEnd/images/beras.jpg')}}" alt=" " />
 				<div class="wed-brandtwo simpleCart_shelfItem">
-					<h4>Javanese Products</h4>
-					<p>Rice</p>
+					<h4 style="color: #fff;">Javanese Products</h4>
+					<p style="color: #000;">Rice</p>
 				</div>
 			</div>
 			<div class="clearfix"></div>
